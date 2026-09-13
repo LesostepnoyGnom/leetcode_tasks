@@ -1,0 +1,33 @@
+// https://leetcode.com/problems/partition-array-according-to-given-pivot/
+
+class Solution {
+public:
+    vector<int> pivotArray(vector<int>& nums, int pivot) {
+        vector<int> sorted_vector; // сюда будем записывать числа в нужно порядке
+        vector<int> eq_pivot; // сюда будем записывать числа к-е равны pivot
+        vector<int> greater_pivot; // сюда будем записывать числа к-е больше чем pivo
+
+        for(int i = 0; i < nums.size(); i++){ // проходимся по всему массиву
+            if(nums[i] < pivot){ // числа к-е меньше чем pivot сразу записываем в итоговый вектор
+                sorted_vector.push_back(nums[i]);
+            }
+            // далее отбираем остальные числа
+            else if(nums[i] == pivot) {
+                eq_pivot.push_back(nums[i]);
+            }
+            else{
+                greater_pivot.push_back(nums[i]);
+            }
+        }
+
+        for(int i = 0; i < eq_pivot.size(); i++){ // добавляем числа к-е равны pivot в итоговый вектор
+            sorted_vector.push_back(eq_pivot[i]);
+        }
+
+        for(int i = 0; i < greater_pivot.size(); i++){ // добавляем числа к-е больше pivot в итоговый вектор
+            sorted_vector.push_back(greater_pivot[i]);
+        }
+
+        return sorted_vector;
+    }
+};
