@@ -22,7 +22,7 @@ public:
             int first_node = curr_node->val;         // значение в текущем узле
             int second_node = curr_node->next->val;  // значение в следующем узле
 
-            for(int j = 0; max_del > 0; j++){ // расчёт МОД
+            for(int j = 0; max_del > 0; j++){ // расчёт наибольшего общего делителя
                     max_del = max(first_node, second_node) - j;
                     if(first_node % max_del == 0 && second_node % max_del == 0){
                         break;
